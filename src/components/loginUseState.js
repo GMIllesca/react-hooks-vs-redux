@@ -9,28 +9,29 @@ export default function LoginUseState() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   const onSubmit = async (e) => {
-    e.preventDefault();
+    e.preventDefault()
 
-    setError('');
-    showLoader(true);
+    setError('')
+    showLoader(true)
 
     try {
       await login({ username, password });
-      setIsLoggedIn(true);
+      setIsLoggedIn(true)
     } catch (error) {
       setError('Incorrect username or password!');
-      showLoader(false);
-      setUsername('');
-      setPassword('');
+      showLoader(false)
+      setUsername('')
+      setPassword('')
     }
   };
 
   const logOut = async (e) => {
+    e.preventDefault()
     showLoader(false)
     setIsLoggedIn(false)
     setError("")
-    setUsername('');
-    setPassword('');
+    setUsername('')
+    setPassword('')
   }
 
   return (

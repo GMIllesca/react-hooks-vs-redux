@@ -1,8 +1,10 @@
 
 import React, { useState, useEffect } from 'react'
-import LoginUseState from './LoginUseState'
-import LoginUseReducer from './LoginUseReducer'
-
+import LoginUseState from './components/loginUseState'
+import LoginUseReducer from './components/loginUseReducer'
+import LoginUseReducerImmer from './components/loginUseReducerImmer'
+import LoginWithContext from './components/loginWithContext'
+import LoginUseReducerTypeScript from './components/loginUseReducerTypeScript'
 // import logo from './logo.svg';
 import './App.css'
 
@@ -33,9 +35,9 @@ function App() {
   const CurrentRoute = useSimpleHashRouter({
     useState: LoginUseState,
     useReducer: LoginUseReducer,
-    // useReducerImmer: LoginUseReducerImmer,
-    // withContext: LoginWithContext,
-    // useReducerTypeScript: LoginUseReducerTypeScript,
+    useReducerImmer: LoginUseReducerImmer,
+    withContext: LoginWithContext,
+    useReducerTypeScript: LoginUseReducerTypeScript,
   })
 
   return (
@@ -57,7 +59,11 @@ function App() {
           <a href='#useReducerTypeScript'>LoginUseReducerTypeScript</a>
         </div>
       )}
-      {CurrentRoute && <CurrentRoute />}
+      {CurrentRoute && <div>
+        <a href='#' ><span role="img">&#128540;</span></a>
+        <br />
+        <CurrentRoute />
+        </div>}
     </>
   );
 }
