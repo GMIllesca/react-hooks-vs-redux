@@ -1,15 +1,6 @@
 import React, { useReducer } from 'react';
 import { login } from './utils';
 
-const initialState: LoginState = {
-  username: '',
-  password: '',
-  isLoading: false,
-  error: '',
-  isLoggedIn: false,
-  variant: 'login',
-};
-
 interface LoginState {
   username: string;
   password: string;
@@ -17,6 +8,15 @@ interface LoginState {
   error: string;
   isLoggedIn: boolean;
   variant: 'login' | 'forgetPassword';
+}
+
+const initialState: LoginState = {
+  username: '',
+  password: '',
+  isLoading: false,
+  error: '',
+  isLoggedIn: false,
+  variant: 'login',
 }
 
 type LoginAction =

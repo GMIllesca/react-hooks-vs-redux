@@ -101,7 +101,6 @@ export default function LoginUseContext() {
                 <button onClick={() => dispatch({ type: 'logOut' })}>
                   Log Out
                 </button>
-                <TodoPage todos={todos} />
               </>
             ) : (
               <form className='form' onSubmit={onSubmit}>
@@ -138,6 +137,7 @@ export default function LoginUseContext() {
               </form>
             )}
           </div>
+          <TodoPage todos={todos} />
         </div>
       </StateContext.Provider>
     </DispatchContext.Provider>
@@ -157,9 +157,9 @@ function TodoPage({ todos }) {
 
 function TodoItem({ title, completed }) {
   const dispatch = useContext(DispatchContext);
-  // const state = useContext(StateContext);
-  // const { isLoggedIn } = state;
-  const isLoggedIn = true;
+  const state = useContext(StateContext);
+  const { isLoggedIn } = state;
+  // const isLoggedIn = true;
   return (
     <div className='todoItem'>
       <p>{title}</p>
